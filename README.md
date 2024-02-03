@@ -72,6 +72,24 @@ App 253077467 deleted successfully.
 Done in 7.20s.
 ```
 
+### 5) `yarn read testnet 590854949`
+﻿
+```
+yarn run v1.22.19
+$ bash ./scripts/read.sh testnet 590854949
+Fetching global state for app ID: 590854949
+Global State: [
+  {
+    "key": "Y291bnQ=",
+    "value": {
+      "bytes": "",
+      "type": 2,
+      "uint": 1
+    }
+  }
+Done in 0.57s.
+```
+
 ## Scripts
 
 The package includes the following scripts:
