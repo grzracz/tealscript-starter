@@ -2,7 +2,8 @@
   "scripts": {
     "compile": "bash ./scripts/compile.sh",
     "deploy": "yarn compile && bash ./scripts/deploy.sh",
-    "call": "bash ./scripts/call.sh"
+    "call": "bash ./scripts/call.sh",
+    "read": "bash ./scripts/read.sh"
   },
   "dependencies": {
     "@algorandfoundation/tealscript": "^0.16.0",
