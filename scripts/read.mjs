@@ -12,6 +12,10 @@ console.log(`Server: ${server}, Token: ${token['X-API-Key']}, Port: ${port}, App
 console.log("Initializing Algorand client...");
 const algodClient = new algosdk.Algodv2(token, server, port);
 
+function decodeBase64(str) {
+    return Buffer.from(str, 'base64').toString('ascii');
+}
+
 async function readGlobalState(client, appId) {
     console.log(`Fetching global state for app ID: ${appId}`);
     const appInfo = await client.getApplicationByID(appId).do();
@@ -21,10 +25,15 @@ async function readGlobalState(client, appId) {
 async function main() {
     try {
         const globalState = await readGlobalState(algodClient, appId);
-        console.log("Global State:", JSON.stringify(globalState, null, 2));
+        const decodedState = globalState.map(entry => ({
+            ...entry,
+            key: decodeBase64(entry.key)
+        }));
+        console.log("Global State:", JSON.stringify(decodedState, null, 2));
     } catch (error) {
         console.error("Failed to read global state:", error);
     }
 }
+
 
 main();
