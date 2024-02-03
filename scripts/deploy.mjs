@@ -88,8 +88,8 @@ async function deploy() {
         ? ''
         : `(${
             process.env.NETWORK.trim() === 'testnet'
-              ? `https://testnet.algoscan.app/app/${appId}`
-              : `https://algoscan.app/app/${appId}`
+              ? `https://testnet-idx.algonode.cloud/v2/applications/${appId}`
+              : `https://mainnet-idx.algonode.cloud/v2/applications/${appId}`
           })`
     }`,
   );

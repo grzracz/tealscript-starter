@@ -72,6 +72,24 @@ App 253077467 deleted successfully.
 Done in 7.20s.
 ```
 
+### 5) `yarn read testnet 590854949`
+﻿
+```
+yarn run v1.22.19
+$ bash ./scripts/read.sh testnet 590854949
+Fetching global state for app ID: 590854949
+Global State: [
+  {
+    "key": "Y291bnQ=",
+    "value": {
+      "bytes": "",
+      "type": 2,
+      "uint": 1
+    }
+  }
+Done in 0.57s.
+```
+
 ## Scripts
 
 The package includes the following scripts:
@@ -84,6 +102,9 @@ The package includes the following scripts:
 - `call <network> <app_id> <method_name> [args...]`: Calls a method on the
   deployed contract with the specified network, app ID, method name, and
   optional arguments.
+- `read <network> <app_id>`: Fetches and interprets the global state of the
+  deployed contract with the specified network and app ID. It decodes the
+  base64-encoded keys and values for better readability.
 
 Please note that you may need to provide additional configuration or parameters
 depending on your specific use case.
